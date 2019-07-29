@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-
-  public host:String = "http://localhost:8082/user"
+  public host:String = "http://10.10.223.73:8082/user"
   constructor(private http: HttpClient) { 
     
   }
@@ -20,5 +15,9 @@ export class UserService {
   allUsers()
   {
     return this.http.get(this.host+"/users")
+  }
+  SignUp(user)
+  {
+    return this.http.post<any>(this.host+ "/SignUp",user);
   }
 }

@@ -9,23 +9,41 @@
 
 <div class="limiter">
   <div class="container-login100">
-    <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+    <div class=" p-l-50 p-r-50 p-t-77 p-b-30">
       <form class="login100-form " [formGroup]="form" (ngSubmit)="login()">
 					<span class="login100-form-title p-b-55">
 						Login
 					</span>
           <div >
-            <div *ngIf="!notfound" class="alert alert-danger">
+            <div *ngIf="!notFound" class="alert alert-danger">
                 votre email ou mot de passe est incorrect
              </div>
         </div>
-        <div class="wrap-input100 validate-input m-b-16 form-gourp" >
-          <input class="input100 " type="text" name="email" formControlName="email" placeholder="Email">
-            
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-16 form-gourp" >
+       
+          <div class="form-group wrap-input100 m-b-16 validate-input" >
+                <input class="form-control input100" type="email" formControlName="email" placeholder="Email" required minlength="12" >
+                <div *ngIf="email.invalid && email.touched">
+                  <div *ngIf="email.errors.required" class="alert alert-danger">
+                     Email est obligatoire
+                  </div>
+                  <div *ngIf="email.errors && !email.errors.required" class="alert alert-danger">
+                     Email est invalide
+                  </div>
+               </div> 
+              </div>
+        <div class="wrap-input100 m-b-16 form-gourp" >
           <input class="input100 form-control" type="password" name="pwd" formControlName="password" placeholder="Password">
+          <div *ngIf="password.touched && password.invalid"  class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+              Le Mot de passe est obligatoire
+            </div>
+            <div *ngIf="password.errors.minlength">
+              Le Mot de passe doit comportre 8 caractaires minimum
+             </div>
+             <div *ngIf="password.errors.maxlength">
+                Le Mot de passe doit comportre 16 caractaires maximum
+               </div>
+           </div> 
         </div>      
         <div class="container-login100-form-btn p-t-25">
           <button class="login100-form-btn">
@@ -38,7 +56,7 @@
 							Not a member?
 						</span>
 
-          <a class="txt1 bo1 hov1" href="#">
+          <a class="txt1 bo1 hov1" href="/SignUp">
             Sign up now
           </a>
         </div>

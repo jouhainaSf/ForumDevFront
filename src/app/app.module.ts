@@ -7,13 +7,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { UserService } from './Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RouterModule} from '@angular/router';
+import { SignupComponent } from './signup/signup.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AcceuilComponent
+    AcceuilComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule,
   
   ],
   providers: [

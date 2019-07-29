@@ -13,29 +13,34 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup ;
   notFound = true;
-  constructor(fb: FormBuilder,
+  constructor(private fb: FormBuilder,
     private _userService: UserService,
     private  router: Router ) {
-    this.form = fb.group({
-        email :new FormControl(
-          '' , [
-            Validators.required ,
-            Validators.email
-          ]
-        ),
-        password :new FormControl('' , [
-            Validators.required ,
-            Validators.max(16) ,
-            Validators.min(8) ,
-          ]
-        )
-      }
-    ) ;
+      this.createForm();
   }
-  getEmail() {
+
+  createForm()
+  {
+    this.form = this.fb.group({
+      email :new FormControl(
+        '' , [
+          Validators.required ,
+          Validators.email
+        ]
+      ),
+      password :new FormControl('' , [
+          Validators.required ,
+          Validators.max(16) ,
+          Validators.min(8) ,
+        ]
+      )
+    }
+  ) ;
+  }
+  get email() {
     return this.form.get('email') ;
   }
-  getPassword() {
+  get password() {
     return this.form.get('password') ;
   }
   login() {
@@ -46,16 +51,23 @@ export class LoginComponent implements OnInit {
    this._userService.loginUser(user).subscribe(
      res=>{
        console.log(res);
-       this.notFound =true;
-       this.router.navigate(['/acceuil']);
+       if(res==null)
+       {
+        this.router.navigate(['/']);
+        this.notFound=false;
+       }else
+       {
+        this.notFound =true;
+        this.router.navigate(['/acceuil']);
+       }
+       
      },
      err=>{
        this.notFound=false;
        console.log(err);
+       this.router.navigate(['/']);
      }
    )
-
-    
   }
   ngOnInit() {
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> SignUp </title>
+  <meta charset="UTF-8">
+
+</head>
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="signupf" (ngSubmit)="SignUp()">
+                        <div class="form-row m-b-55 ">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc form-group">
+                                            <input class="form-control input--style-5" type="text"formControlName="firstname" >
+                                            <label class="label--desc">first name</label>
+                                            <div *ngIf="firstname.touched && firstname.invalid" class="alert alert-danger">
+                                              <div *ngIf="firstname.errors.required">
+                                                firstname is obligatory
+                                              </div>
+                                              <div *ngIf="firstname.errors.pattern">
+                                                At least one caracter is required
+                                              </div>
+                                              <div *ngIf="firstname.errors.minlength">
+                                                  At least one caracter is required
+                                                </div>
+                                                <div *ngIf="firstname.errors.maxlength">
+                                                    firstname cannot have more than 10 caracters
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="form-control input--style-5" type="text" name="last_name" formControlName="lastname">
+                                            <label class="label--desc">last name</label>
+                                            <div *ngIf="lastname.touched && lastname.invalid" class="alert alert-danger">
+                                                <div *ngIf="firstname.errors.required">
+                                                  lastname is obligatory
+                                                </div>
+                                                <div *ngIf="lastname.errors.pattern">
+                                                  At least one caracter is required
+                                                </div>
+                                                <div *ngIf="lastname.errors.minlength">
+                                                    At least one caracter is required
+                                                  </div>
+                                                  <div *ngIf="lastname.errors.maxlength">
+                                                      lasttname cannot have more than 10 caracters
+                                                    </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="form-group input-group">
+                                    <input class="form-control input--style-5" type="email"  formControlName="email">
+                                    <div *ngIf="email.invalid && email.touched">
+                                        <div *ngIf="email.errors.required" class="alert alert-danger">
+                                           Email is obligatory
+                                        </div>
+                                        <div *ngIf="email.errors && !email.errors.required" class="alert alert-danger">
+                                           invalid email
+                                        </div>
+                                     </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group form-group">
+                                    <input class="form-control input--style-5" type="password" formControlName="password">
+                                    <div *ngIf="password.touched && password.invalid"  class="alert alert-danger">
+                                        <div *ngIf="password.errors.required">
+                                          password is obligatory
+                                        </div>
+                                        <div *ngIf="password.errors.minlength">
+                                          password must have at least 8 caracters
+                                         </div>
+                                         <div *ngIf="password.errors.maxlength">
+                                            password cannot have more than 16 caracters
+                                           </div>
+                                       </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Confirm Password</div>
+                            <div class="value">
+                                <div class="input-group form-group">
+                                    <input class="form-control input--style-5" type="password" formControlName="confirmpassword">
+
+                                    <div *ngIf="confirmpassword.touched && confirmpassword.invalid"  class="alert alert-danger">
+                                        <div *ngIf="confirmpassword.errors.required">
+                                          password is obligatory
+                                        </div>
+                                      </div>
+                                      <div  *ngIf="confirmpassword.valid && signupf.invalid && signupf.get('confirmpassword').errors" class="alert alert-danger">
+                                        Passwords are not matching
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-login100-form-btn p-t-25">
+                            <button class="login100-form-btn">
+                              Login
+                            </button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

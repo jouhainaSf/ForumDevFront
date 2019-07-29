@@ -2,11 +2,11 @@ export class User{
 
     constructor(    
         public _id?: String,
-        public firstname?: string,
-        public lastname?: string,
-        public tel?: string,
+        public firstName?: string,
+        public lastName?: string,
         public email?: string,
-        public pwd?: string, ){
+        public pwd?: string,
+        public type?: string, ){
 
     }
 }
