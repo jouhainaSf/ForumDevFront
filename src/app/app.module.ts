@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule  } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,8 @@ import { UserService } from './Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule} from '@angular/router';
 import { SignupComponent } from './signup/signup.component'
+import { PostService } from './Services/post.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { SignupComponent } from './signup/signup.component'
   
   ],
   providers: [
-    UserService
+    UserService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

@@ -108,7 +108,7 @@
                                           password is obligatory
                                         </div>
                                       </div>
-                                      <div  *ngIf="confirmpassword.valid && signupf.invalid && signupf.get('confirmpassword').errors" class="alert alert-danger">
+                                      <div  *ngIf="confirmpassword.valid && signupf.get('confirmpassword')" class="alert alert-danger">
                                         Passwords are not matching
                                       </div>
                                 </div>

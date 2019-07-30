@@ -114,7 +114,7 @@ export class SignupComponent implements OnInit {
       let password = parent.get('password').value;
       let confirmPassword = control.value;
   
-      if (password != confirmPassword) {
+      if (password == confirmPassword) {
         return { ConfirmPassword: true };
       } else {
         return null

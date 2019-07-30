@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../Services/user.service';
+import { PostService } from '../Services/post.service';
 
 @Component({
   selector: 'app-acceuil',
@@ -9,7 +10,8 @@ import { UserService } from '../Services/user.service';
 export class AcceuilComponent implements OnInit {
 
   users;
-  constructor(private userService: UserService) { }
+  posts;
+  constructor(private userService: UserService , private postService : PostService) { }
 
   ngOnInit() {
     this.userService.allUsers().subscribe(
@@ -17,8 +19,14 @@ export class AcceuilComponent implements OnInit {
         this.users=res;
         return this.users;
       }
-
-    )
+)
+this.postService.getAllPosts().subscribe(
+  res=>{
+    this.posts=res;
+    return this.posts;
+  }
+)
+    
   }
 
 }
