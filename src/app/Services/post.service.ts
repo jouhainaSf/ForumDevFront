@@ -13,4 +13,8 @@ export class PostService {
   {
     return this.http.get(this.host+"/posts");
   }
+  getPost(post)
+  {
+    return this.http.post<any>(this.host+"/afficherPost",post);
+  }
 }

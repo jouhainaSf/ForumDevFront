@@ -10,14 +10,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule} from '@angular/router';
 import { SignupComponent } from './signup/signup.component'
 import { PostService } from './Services/post.service';
-import { CommonModule } from '@angular/common';
+import { CommentService } from './Services/comment.service';
+import { AfficherPostComponent } from './afficher-post/afficher-post.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AcceuilComponent,
-    SignupComponent
+    SignupComponent,
+    AfficherPostComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [
     UserService,
-    PostService
+    PostService,
+    CommentService
   ],
   bootstrap: [AppComponent]
 })

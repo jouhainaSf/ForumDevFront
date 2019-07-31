@@ -1,44 +1,5 @@
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/accueil">GeekFamily</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/acceuil">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/profile">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div id="sidebar-wrapper">
-      <ul id="sidebar_menu" class="sidebar-nav">
-        <a class="navbar-brand" href="/accueil">Menu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </ul>
-      <ul class="sidebar-nav" id="sidebar">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Categorie</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Users</a>
-        </li>
-      </ul>
-    </div>
-  <!-- Page Content -->
+ <app-header></app-header>
+    <!-- Page Content -->
   <div class="container">
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
@@ -48,23 +9,27 @@
 
     <!-- Page Features -->
     <div class="row text-center">
-
-        <table class="table table-striped table-hover"> 
-                <tr *ngFor="let post of posts">
-                   
+        <table class="table table-striped table-hover .table-responsive-xl"> 
+          <tr *ngFor="let post of posts" [routerLink]="['/Post/'+post.id_p]"> 
                     <td>
                       <tr>{{post.rate}}</tr>
                       <tr><small>Rate</small></tr>
                     </td>
                     <td>
-                        <tr>{{post.rate}}</tr>
-                        <tr><small>{{post.dateCreation}}</small></tr>
-                      </td>
+                      <tr>{{post.nbComment}}</tr>
+                      <tr><small>Comments</small></tr>
+                    </td>
+                    <td>
+                        <tr>{{post.title}}</tr>
+                        <tr class="float-r"><small>{{post.categorie.cat}}</small></tr>
+                    </td>
                     <td>{{post.description}}</td> 
-                    <td>{{post.user.firstName}} {{post.user.lastName}}</td>
-                </tr>
-          </table>
-
+                    <td>
+                      <tr>{{post.user.firstName}} {{post.user.lastName}}</tr>
+                      <tr class="float-r"><small>{{post.dateCreation| date: 'dd/MM/yyyy'}}</small></tr>
+                    </td>
+             </tr>
+          </table>   
     </div>
     <!-- /.row -->
 
