@@ -13,6 +13,7 @@ import { PostService } from './Services/post.service';
 import { CommentService } from './Services/comment.service';
 import { AfficherPostComponent } from './afficher-post/afficher-post.component';
 import { HeaderComponent } from './header/header.component';
+import { UpdatepostComponent } from './updatepost/updatepost.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
     AcceuilComponent,
     SignupComponent,
     AfficherPostComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdatepostComponent
   ],
   imports: [
     BrowserModule,

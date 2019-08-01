@@ -6,17 +6,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CommentService {
 
-  public host:String = "http://10.10.223.73:8082/post"
+  public host:String = "http://10.10.223.73:8082/comment"
 
-  constructor(private http:HttpClient) { }
-
-  getNbComment(post)
-  {
-    return this.http.post<any>(this.host+"/nbComment",post);
+  constructor(private http:HttpClient) { 
   }
 
   getComments(post)
   {
-    return this.http.post<any>(this.host+"/getComments",post);
+    return this.http.get(this.host+"/getComments",post);
   }
+
+  getAllComments()
+  {
+    return this.http.get(this.host+"/AllComment")
+  }
+
+ 
 }

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
   public host:String = "http://10.10.223.73:8082/user"
   constructor(private http: HttpClient) { 
-    
+
   }
   loginUser(user)
   {
@@ -19,5 +19,10 @@ export class UserService {
   SignUp(user)
   {
     return this.http.post<any>(this.host+ "/SignUp",user);
+  }
+
+  Commenter(comment)
+  {
+    return this.http.post<any>(this.host+"/comment",comment)
   }
 }

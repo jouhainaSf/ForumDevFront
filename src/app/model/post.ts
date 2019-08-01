@@ -1,6 +1,7 @@
 import { User } from "./user";
 import { Categorie } from "./categorie";
 import { Comment } from "./comment";
+import { Image } from "./image";
 
 export class post
 {
@@ -11,6 +12,7 @@ export class post
     user:User;
     dateCreation:string;
     categorie:Categorie ;
-    comments : Comment  ;
+    comments : Comment;
     nbComment:string;
+    images : Image
 } 

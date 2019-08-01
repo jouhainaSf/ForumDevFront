@@ -6,5 +6,6 @@ export class Comment
     id_com:string;
     contenue:string;
     post:post;
-    user:User
+    user:User;
+    dateCreation:string
 }

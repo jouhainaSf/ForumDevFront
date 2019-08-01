@@ -7,7 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class PostService {
   public host:String = "http://10.10.223.73:8082/post"
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {
+
+   }
 
   getAllPosts()
   {
@@ -16,5 +18,14 @@ export class PostService {
   getPost(post)
   {
     return this.http.post<any>(this.host+"/afficherPost",post);
+  }
+  getNbComment(post)
+  {
+    return this.http.post<any>(this.host+"/nbComment",post);
+  }
+
+  Liker(like)
+  {
+    return this.http.post<any>(this.host+"/liker",like)
   }
 }
