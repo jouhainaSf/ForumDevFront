@@ -1,0 +1,26 @@
+<app-profile-header></app-profile-header>
+
+<main role="main" class="container" *ngIf="isNotNull">
+    <div class="row">
+      <div class="blog-post row mb-2" >
+            <div class="col-md-4" *ngFor="let dislike of dislikes " >
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">{{dislike.post.categorie.cat}}</strong>
+                    <h3 class="mb-0">{{dislike.post.title}}</h3>
+                    <div class="mb-1 text-muted">{{dislike.post.dateCreation | date :"dd/MM/yyyy"}} <a [routerLink]="['/profile/'+dislike.post.user.id_u]">{{dislike.post.user.firstName}} {{dislike.post.user.lastName}}</a></div>
+                    <p class="card-text mb-auto">{{dislike.post.description}}</p>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+</main>
+<main role="main" class="container" *ngIf="!isNotNull">
+  <div class="row">
+    <div  class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+      <h5 class="text-info">There is no dislikes!</h5>
+    </div>
+
+  </div>
+</main>

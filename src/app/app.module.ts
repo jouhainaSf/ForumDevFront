@@ -14,6 +14,20 @@ import { CommentService } from './Services/comment.service';
 import { AfficherPostComponent } from './afficher-post/afficher-post.component';
 import { HeaderComponent } from './header/header.component';
 import { UpdatepostComponent } from './updatepost/updatepost.component';
+import { LikeDislikeComponent } from './like-dislike/like-dislike.component';
+import { CommentsComponent } from './comments/comments.component';
+import { VerticalMenuComponent } from './vertical-menu/vertical-menu.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
+import { ProfileHeaderComponent } from './profile-header/profile-header.component';
+import { AllCommentsComponent } from './all-comments/all-comments.component';
+import { AllLikesComponent } from './all-likes/all-likes.component';
+import { AllDislikesComponent } from './all-dislikes/all-dislikes.component';
+import { AuthGuardGuard } from './auth-guard.guard';
+import { AddPostComponent } from './add-post/add-post.component';
+import { AllCategoriesComponent } from './all-categories/all-categories.component';
+import { CategorieComponent } from './categorie/categorie.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { UserPostComponent } from './user-post/user-post.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +37,21 @@ import { UpdatepostComponent } from './updatepost/updatepost.component';
     SignupComponent,
     AfficherPostComponent,
     HeaderComponent,
-    UpdatepostComponent
+    UpdatepostComponent,
+    LikeDislikeComponent,
+    CommentsComponent,
+    VerticalMenuComponent,
+    ProfileUserComponent,
+    ProfileHeaderComponent,
+    AllCommentsComponent,
+    AllLikesComponent,
+    AllDislikesComponent,
+    AddPostComponent,
+    AllCategoriesComponent,
+    CategorieComponent,
+    AllUsersComponent,
+    UserPostComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +65,8 @@ import { UpdatepostComponent } from './updatepost/updatepost.component';
   providers: [
     UserService,
     PostService,
-    CommentService
+    CommentService,
+    AuthGuardGuard
   ],
   bootstrap: [AppComponent]
 })

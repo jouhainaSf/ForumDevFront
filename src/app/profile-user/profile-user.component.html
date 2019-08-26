@@ -1,0 +1,87 @@
+<app-profile-header></app-profile-header>
+<app-user-post></app-user-post> 
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-12 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+        Activities 
+      </h3>
+
+      <div class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+        <h5 class="text-info">{{userr.firstName}} has commented {{userr.nbComments}} times<sub><a [routerLink]="['/comments/'+userr.id_u]" ><small class="showAll">Show All</small></a>        </sub> </h5> 
+      </div>
+
+      <div class="blog-post row mb-2" >
+
+          <div class="col-md-4" *ngFor="let comment of userr.comments | slice : 0 : 5" >
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">{{comment.post.categorie.cat}}</strong>
+                  <h3 class="mb-0">{{comment.post.title}}</h3>
+                  <div class="mb-1 text-muted">{{comment.post.dateCreation | date :"dd/MM/yyyy"}} <a [routerLink]="['/profile/'+comment.post.user.id_u]">{{comment.post.user.firstName}} {{comment.post.user.lastName}}</a></div>
+                  <p class="card-text mb-auto">{{comment.post.description}}</p>
+                  <hr >
+                  <h4 class="mb-0  ">{{userr.firstName}} Comment</h4>
+                  <p class="card-text mb-auto">{{comment.contenue}}</p>
+
+
+                </div>
+              </div>
+            </div>
+      </div><!-- /.blog-post -->
+
+      <hr>
+
+      <!-- historique likes -->
+      <div class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+        <h5 class="text-info">{{userr.firstName}} has liked {{userr.nbLikes}} posts<sub><a [routerLink]="['/likes/'+userr.id_u]" ><small class=" showAll">Show All</small></a>        </sub> </h5> 
+
+      </div>
+
+      <div class="blog-post row mb-2" >
+
+          <div class="col-md-4" *ngFor="let like of userr.likes | slice : 0 : 5" >
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">{{like.post.categorie.cat}}</strong>
+                  <h3 class="mb-0">{{like.post.title}}</h3>
+                  <div class="mb-1 text-muted">{{like.post.dateCreation | date :"dd/MM/yyyy"}} <a [routerLink]="['/profile/'+like.post.user.id_u]">{{like.post.user.firstName}} {{like.post.user.lastName}}</a></div>
+                  <p class="card-text mb-auto">{{like.post.description}}</p>
+                </div>
+              </div>
+            </div>
+      </div>
+
+      <hr>
+
+      <!-- historique dislikes -->
+      <div class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+        <h5 class="text-info">{{userr.firstName}} has disliked {{userr.nbDislikes}} posts<sub><a [routerLink]="['/dislikes/'+userr.id_u]" ><small class="showAll">Show All</small></a>
+        </sub></h5>
+
+       </div>
+
+      <div class="blog-post row mb-2" >
+
+          <div class="col-md-4" *ngFor="let dislike of userr.dislikes | slice : 0 : 5" >
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">{{dislike.post.categorie.cat}}</strong>
+                  <h3 class="mb-0">{{dislike.post.title}}</h3>
+                  <div class="mb-1 text-muted">{{dislike.post.dateCreation | date :"dd/MM/yyyy"}} <a [routerLink]="['/profile/'+dislike.post.user.id_u]">{{dislike.post.user.firstName}} {{dislike.post.user.lastName}}</a></div>
+                  <p class="card-text mb-auto">{{dislike.post.description}}</p>
+                </div>
+              </div>
+            </div>
+      </div>
+
+  
+
+    </div><!-- /.blog-main -->
+
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+

@@ -3,16 +3,15 @@ import { Categorie } from "./categorie";
 import { Comment } from "./comment";
 import { Image } from "./image";
 
-export class post
+export class Post
 {
     id_p:string;
     rate:string
     title:string;
     description:string;
-    user:User;
+    user=new User();
     dateCreation:string;
     categorie:Categorie ;
-    comments : Comment;
     nbComment:string;
-    images : Image
+    images = new Array(Image);
 } 

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  public host:String = "http://10.10.223.73:8082/post"
+  public host:String = "http://localhost:8082/post"
 
   constructor(private http : HttpClient) {
 
@@ -13,7 +14,7 @@ export class PostService {
 
   getAllPosts()
   {
-    return this.http.get(this.host+"/posts");
+    return this.http.get<any>(this.host+"/posts");
   }
   getPost(post)
   {
@@ -24,8 +25,36 @@ export class PostService {
     return this.http.post<any>(this.host+"/nbComment",post);
   }
 
-  Liker(like)
+  Liker(post , id_u)
   {
-    return this.http.post<any>(this.host+"/liker",like)
+    return this.http.post<any>(this.host+"/liker/"+id_u,post)
+  }
+
+  disLiker(post , id_u)
+  {
+    return this.http.post<any>(this.host+"/disliker/"+id_u,post)
+  }
+
+  updatePost(post)
+  {
+    return this.http.post<any>(this.host+"/modifyPost",post)
+  }
+  findByUser(user)
+  {
+    return this.http.post<any>(this.host+"/findByUser",user);
+  }
+
+  addPost(post)
+  {
+    return this.http.post<any>(this.host+'/Poster',post);
+  }
+
+  getPostByCategorie(categorie)
+  {
+    return this.http.post<any>(this.host+"/PostByCategorie",categorie)
+  }
+  deletePost(post)
+  {
+    return this.http.post<any>(this.host+"/DeletePost",post)
   }
 }

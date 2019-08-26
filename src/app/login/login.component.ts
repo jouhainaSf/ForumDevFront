@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup ;
   notFound = true;
+  currentUser:User;
   constructor(private fb: FormBuilder,
     private _userService: UserService,
     private  router: Router ) {
@@ -60,6 +61,8 @@ export class LoginComponent implements OnInit {
         this.notFound =true;
         this.router.navigate(['/acceuil']);
        }
+       
+       this._userService.currentUser.subscribe(this.currentUser=res)
        
      },
      err=>{

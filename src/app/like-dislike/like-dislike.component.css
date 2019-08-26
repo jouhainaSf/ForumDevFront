@@ -1,0 +1,37 @@
+ 
+  .buttonUp{
+    width:0px;
+    height:-15px;
+    margin: auto;
+    padding: 0%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid darkgrey;
+    background: none;
+    cursor: pointer;
+
+  }
+
+  .buttonDown
+  {
+    background: none;
+    cursor: pointer;
+    width:0px;
+    height:-15px;
+    margin:auto;
+    padding: 0%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid darkgray;
+  }
+
+  .rate
+  {
+    margin-left: 3px;
+    font-size: small;
+    font-family: 'Bookman Old Style', serif;
+  }
+
+
+
+

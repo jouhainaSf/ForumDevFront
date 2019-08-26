@@ -1,0 +1,31 @@
+<app-profile-header></app-profile-header>
+<div class="container" *ngIf="!noComments">
+    <div class="blog-post row mb-2" >
+
+        <div class="col-md-4" *ngFor="let comment of comments" >
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">{{comment.post.categorie.cat}}</strong>
+                <h3 class="mb-0">{{comment.post.title}}</h3>
+                <div class="mb-1 text-muted">{{comment.post.dateCreation | date :"dd/MM/yyyy"}} <a href="#">{{comment.post.user.firstName}} {{comment.post.user.lastName}}</a></div>
+                <p class="card-text mb-auto">{{comment.post.description}}</p>
+                <hr >
+                <h4 class="mb-0  ">Your Comment</h4>
+                <p class="card-text mb-auto">{{comment.contenue}}</p>
+  
+  
+              </div>
+            </div>
+          </div>
+    </div><!-- /.blog-post -->
+</div>
+
+
+<div class="container" *ngIf="noComments">
+    <div class=" row" >
+
+        <div  class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+            <h5 class="text-info">there is no comments !</h5>
+          </div>
+    </div><!-- /.blog-post -->
+</div>

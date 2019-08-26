@@ -4,6 +4,8 @@ import { PostService } from '../Services/post.service';
 import { CommentService } from '../Services/comment.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Image } from '../model/image';
+import { User } from '../model/user';
+import { Post } from '../model/post';
 
 @Component({
   selector: 'app-acceuil',
@@ -12,14 +14,15 @@ import { Image } from '../model/image';
 })
 export class AcceuilComponent implements OnInit {
 
-  users;
-  posts;
+  users :User[];
+  posts:Post[];
   constructor(private userService: UserService 
     , private postService : PostService 
     , private commentService : CommentService
     ,private sanitizer:DomSanitizer) { }
 
   ngOnInit() {
+    let Item = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.allUsers().subscribe(
       res=>{
         this.users=res;
@@ -28,7 +31,7 @@ export class AcceuilComponent implements OnInit {
 )
 this.postService.getAllPosts().subscribe(
   res=>{
-    this.posts=res;
+    this.posts=res; 
     for(let post of this.posts)
     {
       this.postService.getNbComment(post).subscribe(
@@ -36,6 +39,7 @@ this.postService.getAllPosts().subscribe(
           post.nbComment=res;
         }
       )
+
     }
     return this.posts;
   }

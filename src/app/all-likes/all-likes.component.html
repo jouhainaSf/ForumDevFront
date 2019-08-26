@@ -1,0 +1,29 @@
+<app-profile-header></app-profile-header>
+<main role="main" class="container" *ngIf="isNotNull">
+  <div class="row">
+     
+          <div class="blog-post row mb-2 p-3" >
+              <div class="col-md-9" *ngFor="let like of likes " >
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">{{like.post.categorie.cat}}</strong>
+                    <h3 class="mb-0">{{like.post.title}}</h3>
+                    <div class="mb-1 text-muted">{{like.post.dateCreation | date :"dd/MM/yyyy"}} <a [routerLink]="['/profile/'+like.post.user.id_u]">{{like.post.user.firstName}} {{like.post.user.lastName}}</a></div>
+                    <p class="card-text mb-auto">{{like.post.description}}</p>
+                  </div>
+                </div>
+              </div>
+              
+    </div>
+  </div>
+</main>
+
+<main role="main" class="container" *ngIf="!isNotNull">
+  <div class="row">
+     
+              <div  class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+                  <h5 class="text-info">There is No Likes  !</h5>
+              </div>
+    </div>
+</main>
+

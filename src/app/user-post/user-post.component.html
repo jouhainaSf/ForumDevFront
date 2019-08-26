@@ -1,0 +1,35 @@
+<div class="container" *ngIf="!noPost">
+  <h3 class="pb-4 mb-4 font-italic border-bottom">
+      Posts
+      <sub *ngIf="isUser"><small class="showAll" [routerLink]="['/addPost']">Add Post</small></sub>
+    </h3>
+  <div class="row mb-2 ">
+      <div class="col-md-4" *ngFor="let post of userr.posts">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{post.categorie.cat}}</strong>
+            <h3 class="mb-0">{{post.title}}</h3>
+            <div class="mb-1 text-muted">{{post.dateCreation | date : "dd/MM/yyyy"}}</div>
+            <p class="card-text mb-auto">{{post.description}}</p>
+            <div class="d-inline-block">
+              <button [routerLink]="['/Post/'+post.id_p]" class="btn-primary">Continue reading</button>
+              <button type="submit" (click)="deletePost(post)" class="btnS btn-primary" *ngIf="isUser">Delete Post</button>
+            </div>
+            
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="noPost">
+<div class="pt-3 mt-3 pb-5 ml-3  ">
+    <h5 class="text-info font-weight-light" >No post yet ! <sub><small class="showAll" [routerLink]="['/addPost']">Add Post</small></sub></h5>
+    
+</div>
+
+
+</div> 

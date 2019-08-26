@@ -1,0 +1,83 @@
+
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Add Your Post</h2>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="addPost()">
+                        <div class="form-row">
+                            <div class="name">Title</div>
+                            <div class="value">
+                                <div class="form-group input-group">
+                                    <input class="form-control input--style-5" type="text"  formControlName="title" placeholder="add your title here ...">
+                                    <div *ngIf="title.invalid && title.touched">
+                                        <div *ngIf="title.errors.required" class="alert alert-danger">
+                                           Title is obligatory
+                                        </div>
+                                        <div *ngIf="title.errors.minlength"  class="alert alert-danger">
+                                            At least one caracter is required
+                                          </div>
+                                          <div *ngIf="title.errors.maxlength"  class="alert alert-danger">
+                                              firstname cannot have more than 50 caracters
+                                            </div>
+                                     </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Description</div>
+                            <div class="value">
+                                <div class="input-group form-group">
+                                    <textarea class="form-control " formControlName="description" rows="3" placeholder="Add your description here ..." requiered></textarea>
+                                    <div *ngIf="description.invalid && description.touched">
+                                        <div *ngIf="description.errors.required" class="alert alert-danger">
+                                            Description is obligatory
+                                        </div>
+                                        <div *ngIf="description.errors.minlength"  class="alert alert-danger">
+                                            At least one caracter is required
+                                          </div>
+                                          <div *ngIf="description.errors.maxlength"  class="alert alert-danger">
+                                              firstname cannot have more than 50 caracters
+                                            </div>
+                                     </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Categorie</div>
+                            <div class="value">
+                                <div class="input-group form-group">
+                                   <select  formControlName="categorie">
+                                     <option></option>
+                                     <option *ngFor="let categoriee of categories" [ngValue]="categoriee" >{{categoriee.cat}}<p [hidden]>{{categoriee.id_cat}}</p></option>
+                                   </select>
+                                   <div *ngIf="categorie.invalid && categorie.touched">
+                                      <div *ngIf="categorie.errors.required" class="alert alert-danger">
+                                          Categorie is obligatory
+                                      </div>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Image</div>
+                            <div class="value">
+                                <div class="input-group form-group">
+                                    <input class="form-control input--style-5" type="file"  formControlName="image" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-login100-form-btn p-t-25">
+                            <button class="login100-form-btn">
+                              Post
+                            </button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

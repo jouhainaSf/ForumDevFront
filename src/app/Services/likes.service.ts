@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LikesService {
 
-  private host = "http://10.10.223.73:8082/post";
+  private host = "http://localhost:8082/post";
   constructor(private http:HttpClient) { }
 
   

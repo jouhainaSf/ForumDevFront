@@ -1,0 +1,55 @@
+<app-header></app-header>
+<app-vertical-menu></app-vertical-menu>
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-12 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+        All Categories' Posts 
+      </h3>
+      <div *ngFor="let categorie of categories">
+        <div  *ngIf="!noPost">
+            <div class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+                <h5 class="text-info">{{categorie.cat}}<sub><a [routerLink]="['/categorie/'+categorie.id_cat]" ><small class="showAll">Show All</small></a>        </sub> </h5> 
+              </div>
+        
+              <div class="blog-post row mb-2">
+        
+                  <div class="col-md-4" *ngFor="let post of categorie.posts | slice : 0 : 5" >
+                      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                          <strong class="d-inline-block mb-2 text-primary">Rate : {{post.rate}}</strong>
+                          <h3 class="mb-0">{{post.title}}</h3>
+                          <div class="mb-1 text-muted">{{post.dateCreation | date :"dd/MM/yyyy"}} <a [routerLink]="['/profile/'+post.user.id_u]">{{post.user.firstName}} {{post.user.lastName}}</a></div>
+                          <p class="card-text mb-auto">{{post.description}}</p>
+                          <hr >
+                          <h4 class="mb-0  ">This post has {{post.nbComment}} comments</h4>
+                        </div>
+                      </div>
+                    </div>
+              </div><!-- /.blog-post -->
+        </div>
+
+        <div *ngIf="noPost">
+            <div class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+                <h5 class="text-info">{{categorie.cat}}<sub>  </sub> </h5> 
+              </div>
+            <div class="blog-post row mb-2" >
+                <div  class="pt-3 mt-3 pb-5 ml-3 font-weight-light ">
+                    <h5 class="text-info">This categorie has no post yet !</h5>
+                  </div>
+            </div><!-- /.blog-post -->
+        </div>
+
+            <hr>
+
+      </div>
+
+
+
+    </div><!-- /.blog-main -->
+
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+
